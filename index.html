@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dra. Taís Dantas · Endocrinopediatria</title>
+  <!-- Font Awesome 6 (ícones) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts: Inter (limpo e moderno) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background-color: #ffffff;
+      color: #3e3a36;
+      line-height: 1.5;
+    }
+
+    :root {
+      --soft-beige: #f9f3ed;
+      --warm-brown: #9c7e6b;
+      --light-brown: #d9c7b9;
+      --pastel-mint: #d9f0e8;
+      --pastel-blush: #fbe9e6;
+      --white: #ffffff;
+      --text-dark: #3e3a36;
+      --text-medium: #5f5b56;
+      --accent: #9c7e6b;
+    }
+
+    h1, h2, h3 {
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text-dark);
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+    }
+    h2:after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 4px;
+      background: var(--warm-brown);
+      border-radius: 4px;
+      margin-top: 8px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* BOTÕES */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background-color: var(--warm-brown);
+      color: white;
+      font-weight: 600;
+      padding: 14px 32px;
+      border-radius: 60px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+      box-shadow: 0 8px 16px rgba(156, 126, 107, 0.15);
+    }
+    .btn-primary i { font-size: 1.2rem; }
+    .btn-primary:hover {
+      background-color: #8b6e5c;
+      transform: scale(1.02);
+      box-shadow: 0 12px 24px rgba(139, 110, 92, 0.2);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: transparent;
+      border: 2px solid var(--warm-brown);
+      color: var(--warm-brown);
+      font-weight: 600;
+      padding: 10px 24px;
+      border-radius: 60px;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    .btn-outline:hover {
+      background-color: var(--warm-brown);
+      color: white;
+    }
+
+    /* HEADER / NAV simples */
+    .navbar {
+      padding: 20px 0;
+      background: var(--white);
+      border-bottom: 1px solid #f0eae4;
+    }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--warm-brown);
+    }
+    .logo span {
+      font-weight: 300;
+      font-size: 1rem;
+      color: var(--text-medium);
+      margin-left: 8px;
+    }
+    .nav-links a {
+      margin-left: 32px;
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, var(--soft-beige) 0%, #ffffff 70%);
+      padding: 60px 0;
+    }
+    .hero-grid {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .hero-content {
+      flex: 1 1 400px;
+    }
+    .hero-image {
+      flex: 1 1 300px;
+      text-align: center;
+    }
+    .hero-image img {
+      max-width: 360px;
+      width: 100%;
+      border-radius: 240px 240px 40px 40px;
+      box-shadow: 0 30px 40px -20px rgba(0,0,0,0.25);
+      border: 6px solid white;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      color: #2e2a26;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--text-medium);
+      max-width: 540px;
+      margin-bottom: 32px;
+    }
+
+    /* seções gerais */
+    .section {
+      padding: 80px 0;
+    }
+    .section-light {
+      background-color: var(--white);
+    }
+    .section-soft {
+      background-color: #fcf9f6;
+    }
+
+    /* cards */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-top: 30px;
+    }
+    .card {
+      background: white;
+      border-radius: 28px;
+      padding: 28px 20px;
+      box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.05);
+      transition: all 0.25s;
+      border: 1px solid #f1e4da;
+      text-align: center;
+    }
+    .card i {
+      font-size: 2.4rem;
+      color: var(--warm-brown);
+      margin-bottom: 16px;
+    }
+    .card h3 {
+      margin-bottom: 8px;
+      font-size: 1.3rem;
+    }
+    .card p {
+      color: var(--text-medium);
+      font-size: 0.95rem;
+    }
+
+    /* diferenciais */
+    .diff-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 24px;
+    }
+    .diff-item {
+      background: var(--soft-beige);
+      border-radius: 48px 48px 24px 24px;
+      padding: 32px 16px;
+      text-align: center;
+      font-weight: 600;
+    }
+    .diff-item i {
+      font-size: 2.8rem;
+      color: var(--warm-brown);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    /* QUIZ interativo */
+    .quiz-wrapper {
+      background: var(--white);
+      border-radius: 40px;
+      padding: 40px;
+      box-shadow: 0 20px 40px -12px rgba(156, 126, 107, 0.2);
+      border: 1px solid var(--light-brown);
+      margin-top: 40px;
+    }
+    .progress-bar {
+      width: 100%;
+      height: 10px;
+      background: #e7dbd1;
+      border-radius: 20px;
+      margin-bottom: 32px;
+    }
+    .progress-fill {
+      width: 16.66%; /* 1/6 */
+      height: 10px;
+      background: var(--warm-brown);
+      border-radius: 20px;
+      transition: width 0.2s;
+    }
+    .pergunta-numero {
+      font-weight: 500;
+      color: var(--warm-brown);
+      margin-bottom: 8px;
+    }
+    .pergunta-texto {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+    .respostas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .resposta-btn {
+      background: #f4ede7;
+      border: 2px solid transparent;
+      border-radius: 40px;
+      padding: 14px 8px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text-dark);
+      cursor: pointer;
+      transition: 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .resposta-btn i { color: var(--warm-brown); }
+    .resposta-btn:hover {
+      background: #ead9ce;
+      border-color: var(--warm-brown);
+    }
+    .resposta-btn.selected {
+      background: var(--warm-brown);
+      color: white;
+      border-color: var(--warm-brown);
+    }
+    .resposta-btn.selected i { color: white; }
+    .campo-texto {
+      width: 100%;
+      padding: 16px 20px;
+      border-radius: 50px;
+      border: 2px solid #e7dbd1;
+      font-size: 1rem;
+      margin-bottom: 24px;
+    }
+    .quiz-actions {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .btn-enviar-whatsapp {
+      background: #25D366;
+      color: white;
+      border: none;
+      padding: 18px 36px;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 8px 16px rgba(37, 211, 102, 0.2);
+      width: 100%;
+      max-width: 380px;
+    }
+    .btn-enviar-whatsapp i { margin-right: 8px; }
+    .btn-enviar-whatsapp:hover { background: #20b859; }
+
+    /* contato */
+    .contato-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      background: var(--soft-beige);
+      border-radius: 40px;
+      padding: 40px;
+      align-items: center;
+    }
+    .info-contato i {
+      color: var(--warm-brown);
+      width: 30px;
+    }
+    .map-link {
+      font-weight: 600;
+      background: white;
+      padding: 12px 24px;
+      border-radius: 60px;
+      display: inline-block;
+      margin-top: 16px;
+      text-decoration: none;
+      color: var(--text-dark);
+      border: 1px solid var(--light-brown);
+    }
+
+    footer {
+      background: #3e3a36;
+      color: #ddd;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    /* responsividade */
+    @media (max-width: 700px) {
+      h2 { font-size: 1.8rem; }
+      .hero h1 { font-size: 1.9rem; }
+      .quiz-wrapper { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-container">
+      <div class="logo">Dra. Taís Dantas <span>CRM/PB 12345</span></div>
+      <div class="nav-links">
+        <a href="#sobre">Sobre</a>
+        <a href="#quiz">Avaliação</a>
+        <a href="#contato">Contato</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <h1>Endocrinopediatria: Cuidando do crescimento e desenvolvimento saudável das crianças.</h1>
+        <p>Dra. Taís Dantas é especialista em endocrinologia pediátrica e acompanha crianças e adolescentes com alterações hormonais e metabólicas com acolhimento e ciência.</p>
+        <a href="https://wa.me/558381317368" class="btn-primary" target="_blank"><i class="fab fa-whatsapp"></i> Agendar Consulta</a>
+      </div>
+      <div class="hero-image">
+        <img src="https://placecats.com/400/500?random=1" alt="Dra. Taís Dantas (foto profissional ilustrativa)" style="background: #d9c7b9;">
+        <!-- use placeholder, a médica pode substituir depois -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE A MÉDICA -->
+  <section id="sobre" class="section section-light">
+    <div class="container">
+      <h2>Sobre a Dra. Taís Dantas</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 30px;">
+        <div style="flex:2; min-width: 280px;">
+          <p style="font-size:1.2rem; margin-bottom:16px;"><strong>Médica especializada em Endocrinologia Pediátrica</strong>, dedicada ao acompanhamento do crescimento, desenvolvimento hormonal e saúde metabólica de crianças e adolescentes.</p>
+          <p style="margin-bottom:12px;">Atendimento focado em cada fase da infância, sempre com abordagem humanizada, baseada em evidências científicas e cuidado individualizado. Acolher os pais e entender as necessidades da criança é a base da nossa conduta.</p>
+          <p>Transmitir confiança às famílias é o que move nosso consultório.</p>
+        </div>
+        <div style="flex:1; background: var(--pastel-mint); border-radius: 32px; padding: 24px; text-align: center;">
+          <i class="fas fa-heart" style="font-size:3rem; color: var(--warm-brown);"></i>
+          <p style="font-weight:600; margin-top:12px;">+10 anos dedicados à saúde infantil</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIZ INTERATIVO (triagem) -->
+  <section id="quiz" class="section section-soft">
+    <div class="container">
+      <span style="background: var(--pastel-blush); padding: 8px 20px; border-radius: 60px; font-weight: 600; color: var(--warm-brown);"><i class="far fa-clock"></i> Em menos de 30 segundos descubra se seu filho precisa de avaliação endocrinológica.</span>
+      <h2 style="margin-top:20px;">Avaliação rápida do crescimento do seu filho</h2>
+      
+      <div class="quiz-wrapper" id="quizWrapper">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div id="perguntaContainer"></div>
+        <div id="navegacaoQuiz" class="quiz-actions"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÁREAS DE ATENDIMENTO -->
+  <section class="section">
+    <div class="container">
+      <h2>Problemas e cuidados que acompanhamos</h2>
+      <div class="cards-grid">
+        <div class="card"><i class="fas fa-child"></i><h3>Baixa estatura</h3><p>Avaliação do crescimento abaixo do esperado para idade.</p></div>
+        <div class="card"><i class="fas fa-seedling"></i><h3>Puberdade precoce</h3><p>Sinais de puberdade antes dos 8 anos (meninas) ou 9 (meninos).</p></div>
+        <div class="card"><i class="fas fa-hourglass-half"></i><h3>Atraso puberal</h3><p>Quando a puberdade não inicia na idade esperada.</p></div>
+        <div class="card"><i class="fas fa-weight-scale"></i><h3>Obesidade infantil</h3><p>Abordagem multidisciplinar do excesso de peso.</p></div>
+        <div class="card"><i class="fas fa-droplet"></i><h3>Diabetes</h3><p>Acompanhamento de crianças e adolescentes com diabetes.</p></div>
+        <div class="card"><i class="fas fa thyroid"></i><h3>Alterações da tireoide</h3><p>Hipotireoidismo, nódulos e disfunções hormonais.</p></div>
+        <div class="card"><i class="fas fa-chart-line"></i><h3>Distúrbios hormonais</h3><p>Problemas de glândulas supra-renais, hipófise, etc.</p></div>
+        <div class="card"><i class="fas fa-ruler"></i><h3>Problemas de crescimento</h3><p>Avaliação global do desenvolvimento.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPORTÂNCIA + DIFERENCIAIS (unidos) -->
+  <section class="section section-soft">
+    <div class="container">
+      <h2>Importância do acompanhamento endocrinológico infantil</h2>
+      <p style="max-width:800px; margin-bottom:48px;">Crescimento saudável, desenvolvimento hormonal adequado, diagnóstico precoce de doenças e acompanhamento do metabolismo infantil são fundamentais para uma vida adulta plena.</p>
+      <div class="diff-grid">
+        <div class="diff-item"><i class="fas fa-hand-holding-heart"></i> Atendimento humanizado</div>
+        <div class="diff-item"><i class="fas fa-chart-simple"></i> Avaliação completa do crescimento</div>
+        <div class="diff-item"><i class="fas fa-person-rays"></i> Acompanhamento individualizado</div>
+        <div class="diff-item"><i class="fas fa-flask"></i> Baseado em evidências científicas</div>
+        <div class="diff-item"><i class="fas fa-comments"></i> Comunicação clara com os pais</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FORTE -->
+  <section class="section" style="background: var(--pastel-blush);">
+    <div class="container" style="text-align: center;">
+      <h2 style="font-size:2.5rem;">Seu filho está crescendo e se desenvolvendo adequadamente?</h2>
+      <a href="https://wa.me/558381317368" class="btn-primary" style="margin-top:24px; font-size:1.5rem; padding:18px 48px;"><i class="fab fa-whatsapp"></i> Agendar Consulta</a>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato" class="section">
+    <div class="container contato-grid">
+      <div style="flex:1;">
+        <h2 style="margin-bottom:16px;">Contato & localização</h2>
+        <div class="info-contato">
+          <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/558381317368" target="_blank" style="text-decoration:none; color:var(--text-dark);">(83) 8131-7368</a></p>
+          <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/dra.taisdantas/" target="_blank">@dra.taisdantas</a></p>
+          <p><i class="fas fa-map-pin"></i> Rua Otalicílio Nepomuceno, 600, Catolé, Desing Mall – 1º andar<br>Consultório Petits de Labouré</p>
+          <p><i class="fas fa-clock"></i> 08h às 20h (consultar disponibilidade via WhatsApp)</p>
+          <a href="https://maps.app.goo.gl/qWeLsmFQKWDrH1bUA" class="map-link" target="_blank"><i class="fas fa-location-dot"></i> Como chegar (Google Maps)</a>
+        </div>
+      </div>
+      <div style="flex:1; background: #fff0e5; border-radius: 32px; padding: 32px; text-align:center;">
+        <i class="fas fa-stethoscope" style="font-size:3rem; color:var(--warm-brown);"></i>
+        <p style="font-size:1.2rem; margin:16px 0;">Agende uma avaliação do seu filho. Acolhimento e experiência a serviço da saúde infantil.</p>
+        <a href="https://wa.me/558381317368" class="btn-outline" target="_blank"><i class="fab fa-whatsapp"></i> Tirar dúvidas</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© Dra. Taís Dantas – Endocrinopediatria. Todos os direitos reservados.</p>
+    <p style="margin-top:16px;">CRM-PB 12345 | Responsável técnico</p>
+  </footer>
+
+  <!-- JAVASCRIPT DO QUIZ -->
+  <script>
+    (function() {
+      const questions = [
+        { text: "Qual a idade da criança ou adolescente?", type: "options", name: "idade", options: ["0–2 anos","3–5 anos","6–10 anos","11–14 anos","15–18 anos"] },
+        { text: "Qual o principal motivo da sua preocupação?", type: "options", name: "motivo", options: ["Baixa estatura","Puberdade precoce","Puberdade atrasada","Sobrepeso/obesidade","Diabetes/suspeita","Problemas de tireoide","Crescimento rápido","Outro"] },
+        { text: "Há quanto tempo você percebe esse problema?", type: "options", name: "tempo", options: ["Recentemente","Alguns meses","Mais de 1 ano"] },
+        { text: "A criança já passou por avaliação médica para isso?", type: "options", name: "avaliacao", options: ["Sim","Não","Ainda não, mas estou preocupado(a)"] },
+        { text: "Qual cidade você mora?", type: "text", name: "cidade", placeholder: "Digite sua cidade" },
+        { text: "Nome do responsável", type: "text", name: "responsavel", placeholder: "Seu nome completo" }
+      ];
+
+      let current = 0;
+      const answers = { idade: "", motivo: "", tempo: "", avaliacao: "", cidade: "", responsavel: "" };
+
+      const container = document.getElementById('perguntaContainer');
+      const navDiv = document.getElementById('navegacaoQuiz');
+      const progressFill = document.getElementById('progressFill');
+
+      function renderPergunta() {
+        const q = questions[current];
+        let html = `<div class="pergunta-numero">Pergunta ${current+1} de 6</div>
+                    <div class="pergunta-texto">${q.text}</div>`;
+
+        if (q.type === 'options') {
+          html += '<div class="respostas-grid">';
+          q.options.forEach(opt => {
+            const selectedClass = (answers[q.name] === opt) ? 'selected' : '';
+            html += `<div class="resposta-btn ${selectedClass}" data-opt="${opt}" data-name="${q.name}"><i class="fas fa-circle-check"></i> ${opt}</div>`;
+          });
+          html += '</div>';
+        } else if (q.type === 'text') {
+          const valor = answers[q.name] || '';
+          html += `<input class="campo-texto" type="text" id="textInput" placeholder="${q.placeholder}" value="${valor}">`;
+        }
+
+        container.innerHTML = html;
+
+        // eventos opções
+        if (q.type === 'options') {
+          document.querySelectorAll('.resposta-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const name = btn.dataset.name;
+              const opt = btn.dataset.opt;
+              answers[name] = opt;
+              // remove selected dos irmãos
+              btn.parentElement.querySelectorAll('.resposta-btn').forEach(b => b.classList.remove('selected'));
+              btn.classList.add('selected');
+            });
+          });
+        } else if (q.type === 'text') {
+          const input = document.getElementById('textInput');
+          if (input) {
+            input.addEventListener('input', (e) => {
+              answers[q.name] = e.target.value;
+            });
+          }
+        }
+
+        // botões de navegação
+        let navHtml = '';
+        if (current > 0) {
+          navHtml += `<button class="btn-outline" id="prevBtn"><i class="fas fa-arrow-left"></i> Anterior</button>`;
+        } else {
+          navHtml += `<div></div>`; // espaçamento
+        }
+        if (current < questions.length - 1) {
+          navHtml += `<button class="btn-primary" id="nextBtn">Próxima <i class="fas fa-arrow-right"></i></button>`;
+        } else {
+          navHtml += `<button class="btn-enviar-whatsapp" id="sendQuizBtn"><i class="fab fa-whatsapp"></i> Enviar avaliação para a endocrinopediatra</button>`;
+        }
+        navDiv.innerHTML = navHtml;
+
+        // progresso
+        let progresso = ((current + 1) / questions.length) * 100;
+        progressFill.style.width = progresso + '%';
+
+        // eventos next/prev/send
+        document.getElementById('prevBtn')?.addEventListener('click', () => { if (current > 0) { current--; renderPergunta(); } });
+        document.getElementById('nextBtn')?.addEventListener('click', () => { if (current < questions.length - 1) { current++; renderPergunta(); } });
+        document.getElementById('sendQuizBtn')?.addEventListener('click', enviarWhatsApp);
+      }
+
+      function enviarWhatsApp() {
+        // coletar campos de texto (se último estiver vazio)
+        const qAtual = questions[current];
+        if (qAtual.type === 'text') {
+          const input = document.getElementById('textInput');
+          if (input) answers[qAtual.name] = input.value;
+        }
+
+        const texto = `Olá Dra. Taís, respondi a avaliação do site:
+• Idade da criança: ${answers.idade || '(não informado)'}
+• Motivo da preocupação: ${answers.motivo || '(não informado)'}
+• Tempo do problema: ${answers.tempo || '(não informado)'}
+• Já passou por médico: ${answers.avaliacao || '(não informado)'}
+• Cidade: ${answers.cidade || '(não informado)'}
+• Nome do responsável: ${answers.responsavel || '(não informado)'}
+
+Gostaria de saber se é indicado marcar uma consulta.`;
+
+        const url = `https://wa.me/558381317368?text=${encodeURIComponent(texto)}`;
+        window.open(url, '_blank');
+      }
+
+      renderPergunta();
+    })();
+  </script>
+
+  <!-- substituir placeholder de foto por imagem real depois -->
+</body>
+</html>
